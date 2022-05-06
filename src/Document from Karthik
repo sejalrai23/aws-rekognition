@@ -1,0 +1,1217 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "831a9c58",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import random\n",
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "14e23ca2",
+   "metadata": {},
+   "source": [
+    "## Question 1 :"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1f83622d",
+   "metadata": {},
+   "source": [
+    "#### 1. Perform the following Python functions on any suitable string/s                 "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "465b2e02",
+   "metadata": {},
+   "source": [
+    "#### a. Capitalize, uppercase and lowercase of the string"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "9120162b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "karthik akella(19bcs008)\n",
+      "KARTHIK AKELLA(19BCS008)\n",
+      "Karthik akella(19bcs008)\n"
+     ]
+    }
+   ],
+   "source": [
+    "str = \"Karthik Akella(19bcs008)\"\n",
+    "print(np.char.lower(str))\n",
+    "\n",
+    "print(np.char.upper(str))\n",
+    "\n",
+    "print(np.char.capitalize(str))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "aaa3e65c",
+   "metadata": {},
+   "source": [
+    "#### b. number of times a specified value occurs in a string"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "15c40ed3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(np.char.count(str,'a'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d584e2d0",
+   "metadata": {},
+   "source": [
+    "#### c. Returns True if all characters in the string are alphanumeric, alphabet, decimals, digits, printable"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "548730ff",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "def checking(str):\n",
+    "    if np.char.isnumeric(str) and np.char.isalpha(str) and np.char.isdecimal(str) and np.char.isdigit(str):\n",
+    "        return True\n",
+    "    else:\n",
+    "        return False\n",
+    "print(checking(str))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "e3c775f0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n",
+      "False\n",
+      "False\n",
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "# In the above function the methods returns the following outputs for the taken string  'SatwikPasuMarthI'\n",
+    "print(np.char.isnumeric(str))\n",
+    "print(np.char.isalpha(str))\n",
+    "print(np.char.isdecimal(str))\n",
+    "print(np.char.isdigit(str))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "22006b37",
+   "metadata": {},
+   "source": [
+    "## Question 2 :"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1bceb2cf",
+   "metadata": {},
+   "source": [
+    "#### Create a 2D array containing random floats between 1 and 10 and arrange them in 3*3 form? "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "133eff77",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[5.33323287, 0.41686755, 8.18493479],\n",
+       "       [0.85750563, 7.53071979, 3.00744371],\n",
+       "       [2.54440588, 0.70279435, 9.59225666]])"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "arr=[]\n",
+    "for i in range(9):\n",
+    "  arr.append(random.random()*10)\n",
+    "arr=(np.array(arr)).reshape(3,3)\n",
+    "arr"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ac36bb8f",
+   "metadata": {},
+   "source": [
+    "## Question 3 :"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0d5469ed",
+   "metadata": {},
+   "source": [
+    "#### Iterate 3D floating array of any dimension with random values using nditer() function and iterate 3D string array of any dimensions with predefined values using ndenumerate() function."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d88664e5",
+   "metadata": {},
+   "source": [
+    "Using nditer"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "10cf4c44",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5.333232869226521\n",
+      "0.4168675520985987\n",
+      "8.184934786405432\n",
+      "0.8575056288285698\n",
+      "7.530719787169526\n",
+      "3.007443711057922\n",
+      "2.5444058750085152\n",
+      "0.7027943466175246\n",
+      "9.59225666121757\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i in np.nditer(arr):\n",
+    "    print(i)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "20221926",
+   "metadata": {},
+   "source": [
+    "Using ndenumerate"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "6efc8416",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(0, 0, 0) 11\n",
+      "(0, 0, 1) 2\n",
+      "(0, 1, 0) 2\n",
+      "(0, 1, 1) 32\n",
+      "(0, 2, 0) 36\n",
+      "(0, 2, 1) 4\n",
+      "(1, 0, 0) 5\n",
+      "(1, 0, 1) 61\n",
+      "(1, 1, 0) 6\n",
+      "(1, 1, 1) 71\n",
+      "(1, 2, 0) 7\n",
+      "(1, 2, 1) 80\n"
+     ]
+    }
+   ],
+   "source": [
+    "a=[\n",
+    "   [['11','2'],['2','32'],['36','4']],\n",
+    "   [['5','61'],['6','71'],['7','80']]\n",
+    "]\n",
+    "a = np.array(a)\n",
+    "for index, x in np.ndenumerate(a):\n",
+    "    print(index, x)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "af216315",
+   "metadata": {},
+   "source": [
+    "## Question 4 : "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f4354d1b",
+   "metadata": {},
+   "source": [
+    "#### Write a python script to join the two 3D arrays using Stack Functions of NumPy."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "892020e6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])\n",
+    "b = np.array([[[9, 10], [11, 12]], [[13, 14], [15, 16]]])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "1797cd16",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Stack :\n",
+      "  [[[[ 1  2]\n",
+      "   [ 3  4]]\n",
+      "\n",
+      "  [[ 5  6]\n",
+      "   [ 7  8]]]\n",
+      "\n",
+      "\n",
+      " [[[ 9 10]\n",
+      "   [11 12]]\n",
+      "\n",
+      "  [[13 14]\n",
+      "   [15 16]]]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "res=np.stack((a,b))\n",
+    "print(\"Stack :\\n \",res)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "e1c47a27",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Horizontally stacked array:\n",
+      "  [[[ 1  2]\n",
+      "  [ 3  4]\n",
+      "  [ 9 10]\n",
+      "  [11 12]]\n",
+      "\n",
+      " [[ 5  6]\n",
+      "  [ 7  8]\n",
+      "  [13 14]\n",
+      "  [15 16]]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "res = np.hstack((a, b))\n",
+    "print (\"Horizontally stacked array:\\n \", res)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "c314eb26",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Vertically stacked array:\n",
+      "  [[[ 1  2]\n",
+      "  [ 3  4]]\n",
+      "\n",
+      " [[ 5  6]\n",
+      "  [ 7  8]]\n",
+      "\n",
+      " [[ 9 10]\n",
+      "  [11 12]]\n",
+      "\n",
+      " [[13 14]\n",
+      "  [15 16]]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "res=np.vstack((a, b))\n",
+    "print (\"Vertically stacked array:\\n \", res)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3ef56a63",
+   "metadata": {},
+   "source": [
+    "## Question 5 :"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3cd63231",
+   "metadata": {},
+   "source": [
+    "##### Write a python script to split the 2D and 3D array using array_split and other stacking functions and access newly created arrays using NumPy."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "ed638638",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "arr_2d = np.array([[1, 2, 3, 4, 8],[2, 5, 6, 7, 8],[5, 7, 11, 12, 13]])\n",
+    "arr_3d=np.array([[[11,12],[12,13],[13,14]],[[15,16],[16,17],[17,18]],[[19,20],[21,22],[23,24]]])\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "22121390",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[array([[1, 2, 3, 4, 8],\n",
+       "        [2, 5, 6, 7, 8]]),\n",
+       " array([[ 5,  7, 11, 12, 13]])]"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a=np.array_split(arr_2d, 2)\n",
+    "a"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "cf0bc6e3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[array([[[11, 12],\n",
+       "         [12, 13],\n",
+       "         [13, 14]],\n",
+       " \n",
+       "        [[15, 16],\n",
+       "         [16, 17],\n",
+       "         [17, 18]]]),\n",
+       " array([[[19, 20],\n",
+       "         [21, 22],\n",
+       "         [23, 24]]])]"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "b=np.array_split(arr_3d,2)\n",
+    "b"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7c804625",
+   "metadata": {},
+   "source": [
+    "## Question 6 :"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4569be4d",
+   "metadata": {},
+   "source": [
+    "Here I have inserted a 1D array in the np.searchsorted() method."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "cb5f11cb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    arr_1d=[2, 3, 4, 5, 6]\n",
+    "    num=5 #the number that you want to search\n",
+    "    print(np.searchsorted(arr_1d,num))\n",
+    "except:\n",
+    "    print(\"It is only works for 1D array\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f46d4082",
+   "metadata": {},
+   "source": [
+    "Here I have inserted a 2D array in the np.searchsorted() method."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "2c70009e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "It is only works for 1D array\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    arr_2d = np.array([[1, 2, 3, 4, 8],\n",
+    "       [2, 5, 6, 7, 8],\n",
+    "       [5, 7, 11, 12, 13]])\n",
+    "    num=4\n",
+    "    print(np.searchsorted(arr_2d,num))\n",
+    "except:\n",
+    "    print(\"It is only works for 1D array\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8d66db65",
+   "metadata": {},
+   "source": [
+    "Here I have inserted a 3D array in the np.searchsorted() method."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "49a834b6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "It is only works for 1D array\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    arr_3d=np.array([[[11,12],[12,13],[13,14]],[[15,16],[16,17],[17,18]]])\n",
+    "    \n",
+    "    num=14\n",
+    "    print(np.searchsorted(arr_3d,num))\n",
+    "except:\n",
+    "    print(\"It is only works for 1D array\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9d61f993",
+   "metadata": {},
+   "source": [
+    "## Question 7 :"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f6d9afdf",
+   "metadata": {},
+   "source": [
+    "#### Write a Python script to randomly generate a 1D array. Sort it using a NumPy function. Search for element ‘35’ and ‘2’ and print the result. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "4a8e8d61",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[43 71 55 39 61 71 14 27 27 57 75 57 37  2 64 18 47  1 44]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr=np.random.randint(1,93,19)\n",
+    "print(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "48bb5510",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "arr=np.sort(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "ade7fb35",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# number=35\n",
+    "# index=np.where(arr==number)\n",
+    "# index"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "775a982e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "b190be6a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "There is no such number= 35 in the generated array\n"
+     ]
+    }
+   ],
+   "source": [
+    "number=35\n",
+    "index=np.where(arr==number)\n",
+    "if index[0].size ==0:\n",
+    "    print(f'There is no such number= {number} in the generated array')\n",
+    "else:\n",
+    "    print(f'The number {number} is in the index postion {index[0][0]} of the generated array')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "770232cc",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The number 2 is in the index postion 1 of the generated array\n"
+     ]
+    }
+   ],
+   "source": [
+    "number=2\n",
+    "index=np.where(arr==number)\n",
+    "if index[0].size ==0:\n",
+    "    print(f'There is no such number = {number} in the generated array')\n",
+    "else:\n",
+    "    print(f'The number {number} is in the index postion {index[0][0]} of the generated array')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "43c21c1d",
+   "metadata": {},
+   "source": [
+    "## Question 8 :"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6c1673d1",
+   "metadata": {},
+   "source": [
+    "### Write a Python script to implement the Data Distribution."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d98745a7",
+   "metadata": {},
+   "source": [
+    "Here are some of the distributed methods"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "755f281b",
+   "metadata": {},
+   "source": [
+    "1. Zipf distribution"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "1df1891e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[ 1  5  2 54]\n",
+      " [ 1  1  1  3]\n",
+      " [ 1  1  2  1]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "data = np.random.zipf(a=2, size=(3, 4))\n",
+    " \n",
+    "print(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4e82ccbd",
+   "metadata": {},
+   "source": [
+    "2. Pareto Distribution"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "40b9e7ca",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[1.02777527 0.03143499 0.2130868  0.38480252]\n",
+      " [0.19348118 0.31316089 0.32766313 0.71190967]\n",
+      " [0.02224952 0.28216836 0.07531668 0.05713837]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "data = np.random.pareto(a=2, size=(3, 4))\n",
+    " \n",
+    "print(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b76afc35",
+   "metadata": {},
+   "source": [
+    "3. Rayleigh Distribution"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "8d5face5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[3.90825632 2.22693057 3.48681697 2.42374674]\n",
+      " [1.11528599 3.53134534 2.43336944 1.1229638 ]\n",
+      " [4.56549367 2.68262664 3.30157182 4.68135513]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "data = np.random.rayleigh(scale=2, size=(3, 4))\n",
+    " \n",
+    "print(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6207859c",
+   "metadata": {},
+   "source": [
+    "4. Exponential Distribution"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "f981a95f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[2.48025261 0.01705114 0.34040572 1.20206796]\n",
+      " [1.2637883  2.9688401  1.11454652 1.52046155]\n",
+      " [0.85194368 5.37956948 0.63740798 0.27567299]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "data = np.random.exponential(scale=2, size=(3, 4))\n",
+    " \n",
+    "print(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "abd68ff6",
+   "metadata": {},
+   "source": [
+    "5. Normal / Gausian Distribution"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "2cd9fee3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[ 0.02886034 -3.23917283 -2.08172098 -2.13294236]\n",
+      " [ 5.15704539 -1.72942444  3.92179854 -2.60734159]\n",
+      " [-2.23007252  0.15578     3.41189863 -1.98419042]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "data = np.random.normal(scale=2, size=(3, 4))\n",
+    " \n",
+    "print(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "55d74f68",
+   "metadata": {},
+   "source": [
+    "Similarly if we shift+tab on the 'random' these are the methods that we can get methods as shown below.We can use them to generate different data distributions\n"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "84d17379",
+   "metadata": {},
+   "source": [
+    "beta                 Beta distribution over ``[0, 1]``.\n",
+    "binomial             Binomial distribution.\n",
+    "chisquare            :math:`\\chi^2` distribution.\n",
+    "exponential          Exponential distribution.\n",
+    "f                    F (Fisher-Snedecor) distribution.\n",
+    "gamma                Gamma distribution.\n",
+    "geometric            Geometric distribution.\n",
+    "gumbel               Gumbel distribution.\n",
+    "hypergeometric       Hypergeometric distribution.\n",
+    "laplace              Laplace distribution.\n",
+    "logistic             Logistic distribution.\n",
+    "lognormal            Log-normal distribution.\n",
+    "logseries            Logarithmic series distribution.\n",
+    "negative_binomial    Negative binomial distribution.\n",
+    "noncentral_chisquare Non-central chi-square distribution.\n",
+    "noncentral_f         Non-central F distribution.\n",
+    "normal               Normal / Gaussian distribution.\n",
+    "pareto               Pareto distribution.\n",
+    "poisson              Poisson distribution.\n",
+    "power                Power distribution.\n",
+    "rayleigh             Rayleigh distribution.\n",
+    "triangular           Triangular distribution.\n",
+    "uniform              Uniform distribution.\n",
+    "vonmises             Von Mises circular distribution.\n",
+    "wald                 Wald (inverse Gaussian) distribution.\n",
+    "weibull              Weibull distribution.\n",
+    "zipf                 Zipf's distribution over ranked data."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d0d918b0",
+   "metadata": {},
+   "source": [
+    "## Question 9 :"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "10ee3460",
+   "metadata": {},
+   "source": [
+    "#### Arthmetic"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "345621bb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[ 6  8  4 12]\n",
+      "[ -4  -4 -10  -4]\n",
+      "[  5  12 -21  32]\n",
+      "[ 0.2         0.33333333 -0.42857143  0.5       ]\n",
+      "[    1    64 -2187 65536]\n",
+      "[1 2 4 4]\n",
+      "(array([ 0,  0, -1,  0], dtype=int32), array([1, 2, 4, 4], dtype=int32))\n",
+      "[1 2 3 4]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr1 = np.array([1,2,-3,4])\n",
+    "arr2 = np.array([5,6,7,8])\n",
+    "newarr1 = np.add(arr1, arr2)\n",
+    "newarr2 = np.subtract(arr1, arr2)\n",
+    "newarr3 = np.multiply(arr1, arr2)\n",
+    "newarr4 = np.divide(arr1, arr2)\n",
+    "newarr5 = np.power(arr1, arr2)\n",
+    "newarr6 = np.mod(arr1, arr2)\n",
+    "newarr7 = np.divmod(arr1, arr2)\n",
+    "newarr8 = np.absolute(arr1)\n",
+    "\n",
+    "print(newarr1)\n",
+    "print(newarr2)\n",
+    "print(newarr3)\n",
+    "print(newarr4)\n",
+    "print(newarr5)\n",
+    "print(newarr6)\n",
+    "print(newarr7)\n",
+    "print(newarr8)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "652ce7f4",
+   "metadata": {},
+   "source": [
+    " #### Rounding Decimals"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "599cb1a5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[-3.  3.]\n",
+      "3.17\n",
+      "[-4.  3.]\n",
+      "[-3.  4.]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr1 = np.trunc([-3.1666, 3.6667]) #Truncation\n",
+    "arr2 = np.around(3.1666, 2) #rounding\n",
+    "arr3 = np.floor([-3.1666, 3.6667]) #floor\n",
+    "arr4 = np.ceil([-3.1666, 3.6667]) #ceil\n",
+    "\n",
+    "print(arr1)\n",
+    "print(arr2)\n",
+    "print(arr3)\n",
+    "print(arr4)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "41cc388d",
+   "metadata": {},
+   "source": [
+    "#### Logs"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "7610b3d5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[0.         1.         1.5849625  2.         2.32192809 2.5849625\n",
+      " 2.80735492 3.         3.169925  ]\n",
+      "[0.         0.30103    0.47712125 0.60205999 0.69897    0.77815125\n",
+      " 0.84509804 0.90308999 0.95424251]\n",
+      "[0.         0.69314718 1.09861229 1.38629436 1.60943791 1.79175947\n",
+      " 1.94591015 2.07944154 2.19722458]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr1 = np.arange(1, 10)\n",
+    "\n",
+    "print(np.log2(arr1)) #log at base 2\n",
+    "print(np.log10(arr1)) #log at base 10\n",
+    "print(np.log(arr1)) #log at base e"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c4967433",
+   "metadata": {},
+   "source": [
+    "#### Summations"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "3b4d64ec",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[2 4 6]\n",
+      "[6 6]\n",
+      "[1 3 6]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr1 = np.array([1, 2, 3])\n",
+    "arr2 = np.array([1, 2, 3])\n",
+    "newarr = np.add(arr1, arr2)\n",
+    "newarr1 = np.sum([arr1, arr2], axis=1) #summation over an axis\n",
+    "newarr2 = np.cumsum(arr1) #cumulative sum\n",
+    "\n",
+    "print(newarr)\n",
+    "print(newarr1)\n",
+    "print(newarr2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cd1bc245",
+   "metadata": {},
+   "source": [
+    "#### Products "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "fc48b9fe",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "40320\n",
+      "[  24 1680]\n",
+      "[ 1  2  6 24]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr1 = np.array([1, 2, 3, 4])\n",
+    "arr2 = np.array([5, 6, 7, 8])\n",
+    "x = np.prod([arr1, arr2])\n",
+    "newarr = np.prod([arr1, arr2], axis=1) #product over an axis\n",
+    "newarr1 = np.cumprod(arr1)\n",
+    "\n",
+    "print(x)\n",
+    "print(newarr)\n",
+    "print(newarr1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "18afeced",
+   "metadata": {},
+   "source": [
+    "#### Differences"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "0ac5eb9a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[  5  10 -20]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr = np.array([10, 15, 25, 5])\n",
+    "newarr = np.diff(arr)\n",
+    "\n",
+    "print(newarr)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "85dccf0f",
+   "metadata": {},
+   "source": [
+    "#### Set operations"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "3b8d10d7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1 2 3 4 5 6 7]\n",
+      "[1 2 3 4 5 6]\n",
+      "[3 4]\n",
+      "[1 2]\n",
+      "[1 2 5 6]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#set creation\n",
+    "arr = np.array([1, 1, 1, 2, 3, 4, 5, 5, 6, 7])\n",
+    "x = np.unique(arr)\n",
+    "#finding union\n",
+    "arr1 = np.array([1, 2, 3, 4])\n",
+    "arr2 = np.array([3, 4, 5, 6])\n",
+    "newarr = np.union1d(arr1, arr2)\n",
+    "#finding intersection\n",
+    "newarr1 = np.intersect1d(arr1, arr2, assume_unique=True)\n",
+    "#finding difference\n",
+    "set1 = np.array([1, 2, 3, 4])\n",
+    "set2 = np.array([3, 4, 5, 6])\n",
+    "newarr2 = np.setdiff1d(set1, set2, assume_unique=True)\n",
+    "#finding symmetric difference\n",
+    "newarr3 = np.setxor1d(set1, set2, assume_unique=True)\n",
+    "\n",
+    "print(x)\n",
+    "print(newarr)\n",
+    "print(newarr1)\n",
+    "print(newarr2)\n",
+    "print(newarr3)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
